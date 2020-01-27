@@ -21,10 +21,14 @@ class AsyncRetryPromise extends Promise{
 				value: factory.retries,
 				writable: true
 			},
+			work: {
+				value: null,
+				writable: true
+			}
 		});
 	
 		// start work
-		(async ()=> {
+		this.work= (async ()=> {
 			// start execution
 			let ex
 			while( this.remaining!== 0){
